@@ -86,7 +86,7 @@ server <- function(input, output) {
   
   output$bar <- renderPlotly({
     validate(
-      need(input$col %in% c("Chick","Diet"),"Pick a different cariable.")
+      need(input$col %in% c("Chick","Diet"),"Pick a different variable.")
     )
     ChickWeight %>% count(!!sym(input$col)) %>% plot_ly(x=as.formula(paste0("~",input$col)), y=~n, type="bar")
   })
